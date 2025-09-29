@@ -1,19 +1,30 @@
 extends Node2D
 
 
-@onready var button: Button = $VBoxContainer/Button
-@onready var label: Label = $VBoxContainer/Label
+const APPS_PATH := "res://Resources/Apps/"
+const APP_OPENER = preload("uid://fxrimv77fm43")
+
+
+@onready var apps_container: VBoxContainer = $AppsContainer
 
 
 func _ready() -> void:
-	button.pressed.connect(_on_button_pressed)
-	GameManager.souls_collected.connect(_on_souls_collected)
+	Utils.for_each_resource_at(
+		APPS_PATH,
+		"App",
+		_on_each_resource,
+		true
+	)
 
 
-func _on_button_pressed() -> void:
-	GameManager.collect_soul(100)
-
-
-func _on_souls_collected(total_soul: int, collected_souls: int) -> void:
-	print("NEW COLLECTED SOULS: %s" % [collected_souls])
-	label.text = "SOULS: %s" % [total_soul]
+func _on_each_resource(app: Resource) -> void:
+	if app is not App:
+		return
+	
+	app = app as App
+	
+	var app_opener: AppOpener = APP_OPENER.instantiate()
+	app_opener.app = app
+	app_opener.text = app.name
+	
+	apps_container.add_child(app_opener)

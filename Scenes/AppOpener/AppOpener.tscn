@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://fxrimv77fm43"]
+
+[ext_resource type="Script" uid="uid://bn6pmahr877bo" path="res://Scenes/AppOpener/AppOpener.gd" id="1_c7l7y"]
+
+[node name="AppOpener" type="Button"]
+script = ExtResource("1_c7l7y")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

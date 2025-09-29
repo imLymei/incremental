@@ -2,6 +2,9 @@ class_name GameState
 extends Resource
 
 
-var souls = 0
-var max_souls_per_seconds = 100
-var souls_bucket = 0
+var souls: int
+var souls_floating_bucket: float
+var souls_bucket: int
+
+var items: Dictionary[int, int]
+var apps: Array[App]

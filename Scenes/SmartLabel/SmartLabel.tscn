@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://5fhhaltq3men"]
+
+[ext_resource type="Script" uid="uid://d1cskenjjux8a" path="res://Scenes/SmartLabel/SmartLabel.gd" id="1_xr5r1"]
+
+[node name="SmartLabel" type="Label"]
+script = ExtResource("1_xr5r1")

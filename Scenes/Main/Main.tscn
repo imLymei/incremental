@@ -2,17 +2,9 @@
 
 [ext_resource type="Script" uid="uid://68mr2l7qm00o" path="res://Scenes/Main/Main.gd" id="1_p8rbg"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["Main"]]
 script = ExtResource("1_p8rbg")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="AppsContainer" type="VBoxContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "ALMAS: 0"
-
-[node name="Button" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "PEGAR ALAMA"

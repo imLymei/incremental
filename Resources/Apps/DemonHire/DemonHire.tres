@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="App" load_steps=3 format=3 uid="uid://b6kkjy3v4j1na"]
+
+[ext_resource type="Script" uid="uid://brelfsh1u5kau" path="res://Resources/App.gd" id="1_4hmxd"]
+[ext_resource type="PackedScene" uid="uid://c0qr8pukxhhs" path="res://Resources/Apps/DemonHire/DemonHire.tscn" id="2_v2la4"]
+
+[resource]
+script = ExtResource("1_4hmxd")
+name = "DemonHire"
+ui_scene = ExtResource("2_v2la4")
+metadata/_custom_type_script = "uid://brelfsh1u5kau"

@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://fh603o2pbudl"]
+
+[ext_resource type="Script" uid="uid://bkscfpcj3jh63" path="res://Scenes/Window/Window.gd" id="1_yaifw"]
+
+[node name="Window" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1420.0
+offset_bottom = -580.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_yaifw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.22745098, 0.22745098, 0.22745098, 0.9019608)
+
+[node name="WindowBody" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" type="ColorRect" parent="WindowBody"]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowBody/TitleBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowBody/TitleBar/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleBarLabel" type="Label" parent="WindowBody/TitleBar/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "TITLE BAR LABEL"
+
+[node name="CloseButton" type="Button" parent="WindowBody/TitleBar/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "X"
+
+[node name="AppBody" type="Control" parent="WindowBody"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="gui_input" from="WindowBody/TitleBar/MarginContainer" to="." method="_on_margin_container_gui_input"]
+[connection signal="pressed" from="WindowBody/TitleBar/MarginContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="App" load_steps=3 format=3 uid="uid://3l25762hb4d4"]
+
+[ext_resource type="Script" uid="uid://brelfsh1u5kau" path="res://Resources/App.gd" id="1_oysgs"]
+[ext_resource type="PackedScene" uid="uid://dopyruekt28g4" path="res://Resources/Apps/SoulsApp/SoulsApp.tscn" id="2_5t8ql"]
+
+[resource]
+script = ExtResource("1_oysgs")
+name = "Souls App"
+ui_scene = ExtResource("2_5t8ql")
+metadata/_custom_type_script = "uid://brelfsh1u5kau"
