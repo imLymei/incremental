@@ -16,6 +16,7 @@ func _ready() -> void:
 		button.pressed.connect(func():
 			GameManager.buy_item(item_id, 1)
 		)
+		button.mouse_filter = Control.MOUSE_FILTER_PASS
 		items_containers.add_child(button)
 	
 	GameManager.items_bought.connect(_on_item_bought)

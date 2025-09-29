@@ -4,7 +4,7 @@ extends Node
 const ITEMS_PATH := "res://Resources/Items/"
 
 const BUCKET_POP_TICK_TIME: float = 0.5
-const GAME_TICK_TIME: float = 0.2
+const GAME_TICK_TIME: float = 0.1
 
 
 signal souls_collected(total_souls: int, collected_souls: int)
@@ -22,13 +22,13 @@ var bucket_timer: Timer
 
 var game_state: GameState
 
-var souls_per_seconds: int :
+var souls_per_seconds: float :
 	get():
-		var total = 0
+		var total: float = 0
 		
 		for item_id in game_state.items:
 			var item: Item = items.get(item_id)
-			total += 0 if item == null else (item.souls_per_second * game_state.items[item_id])
+			total += 0.0 if item == null else (item.souls_per_second * game_state.items[item_id])
 		
 		return total
 var max_souls_per_seconds: int :
@@ -73,7 +73,7 @@ func collect_soul(amount: float) -> void:
 	
 	if game_state.souls_floating_bucket >= 1:
 		amount += floor(game_state.souls_floating_bucket)
-		game_state.souls_floating_bucket = Utils.round_to_decimal(fmod(game_state.souls_floating_bucket, 1), 4)
+		game_state.souls_floating_bucket = Utils.round_to_decimal(fmod(game_state.souls_floating_bucket, 1), 10)
 	
 	game_state.souls += floor(amount)
 	souls_collected.emit(game_state.souls, amount)
@@ -86,7 +86,7 @@ func buy_item(item_id: int, amount: int) -> void:
 
 
 func _on_game_tick() -> void:
-	collect_soul(souls_per_seconds * 0.2)
+	collect_soul(souls_per_seconds * GAME_TICK_TIME)
 	game_tick.emit()
 
 

@@ -12,8 +12,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _on_souls_collected(total_souls: int, _souls_collected: int) -> void:
-	total_souls_label.update_label_variables("TOTAL_SOULS", total_souls)
+func _on_souls_collected(_total_souls: int, _souls_collected: int) -> void:
+	total_souls_label.update_label_variables("TOTAL_SOULS", GameManager.game_state.souls)
 	souls_bucket_label.update_label_variables("SOULS_BUCKET", GameManager.game_state.souls_floating_bucket)
 
 

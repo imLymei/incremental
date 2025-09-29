@@ -7,5 +7,5 @@ script = ExtResource("1_18v04")
 name = "Reaper"
 description = "A simple item.
 You probably should stay away."
-souls_per_second = 1
+souls_per_second = 0.5
 metadata/_custom_type_script = "uid://cdgpwodovbpg8"

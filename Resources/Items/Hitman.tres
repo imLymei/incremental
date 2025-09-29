@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://x1eud2ix1dbu"]
+
+[ext_resource type="Script" uid="uid://cdgpwodovbpg8" path="res://Resources/Item.gd" id="1_wmer5"]
+
+[resource]
+script = ExtResource("1_wmer5")
+id = 1
+name = "Hitman"
+description = "A simple item.
+You probably should stay away."
+souls_per_second = 1.0
+metadata/_custom_type_script = "uid://cdgpwodovbpg8"
