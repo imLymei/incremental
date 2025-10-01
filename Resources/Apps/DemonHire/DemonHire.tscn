@@ -2,18 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dydeu1ob63ewy" path="res://Resources/Apps/DemonHire/DemonHire.gd" id="1_56o1j"]
 
-[node name="DemonHire" type="Control"]
-layout_mode = 3
+[node name="DemonHire" type="ScrollContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 script = ExtResource("1_56o1j")
 
 [node name="ItemsContainers" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

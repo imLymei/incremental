@@ -21,23 +21,18 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	print("DISPLAYING SOULS")
 	total_souls_label.update_label_variables("TOTAL_SOULS", display_souls)
 	
 	if display_souls == GameManager.game_state.souls:
 		set_process(false)
 
 
-func _on_souls_collected(_total_souls: int, souls_collected: int) -> void:
+func _on_souls_collected(_total_souls: int, _souls_collected: int) -> void:
 	total_souls_label.update_label_variables("REAL_SOULS", GameManager.game_state.souls)
 	
-	if souls_collected < 3:
-		display_souls = GameManager.game_state.souls
-		total_souls_label.update_label_variables("TOTAL_SOULS", GameManager.game_state.souls)
-	else:
-		display_souls_tween = create_tween()
-		display_souls_tween.tween_property(self, "display_souls", GameManager.game_state.souls, GameManager.GAME_TICK_TIME)
-		set_process(true)
+	display_souls_tween = create_tween()
+	display_souls_tween.tween_property(self, "display_souls", GameManager.game_state.souls, GameManager.GAME_TICK_TIME)
+	set_process(true)
 	
 	souls_bucket_label.update_label_variables("SOULS_BUCKET", GameManager.game_state.souls_floating_bucket)
 	
