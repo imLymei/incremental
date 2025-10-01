@@ -4,7 +4,7 @@ extends Node
 const ITEMS_PATH := "res://Resources/Items/"
 
 const BUCKET_POP_TICK_TIME: float = 0.5
-const GAME_TICK_TIME: float = 0.1
+const GAME_TICK_TIME: float = 0.5
 
 
 signal souls_collected(total_souls: int, collected_souls: int)
